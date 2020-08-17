@@ -11,9 +11,9 @@ public class Login {
         System.out.println("Digite seu nome completo");
         String nome = scanner.nextLine();
 
-        String[] novo = nome.split(" ");
+        String[] login = nome.split(" ");
 
-        String username = nome.charAt(0) + "_" + novo[novo.length-1];
+        String username = nome.charAt(0) + "_" + login[login.length-1];
         System.out.println("Seu Usuario de Login e: " + username);
 
         //FIM CADASTRO USUARIO ....
@@ -42,7 +42,7 @@ public class Login {
                 }
             }
             if (temCaracterEspecial == false){
-                System.out.println("Senha precisar  uma letra Maiuscla e Menusculas e caracter especil @#!-");
+                System.out.println("Senha precisar de uma letra Maiuscla e Menusculas e caracter especil @#!-");
                 break;
             }
 
@@ -51,8 +51,27 @@ public class Login {
 
         // FIM EXIGENCIA DE CARACTER NA SENHA...
 
+        // INICIO DA VALIDAÇÃO DO LOGIN E SENHA P/ PODER LOGAR.....
 
 
+        boolean validaLogin = false;
+         while ( validaLogin == false) {
+             System.out.println("Insira seu login: ");
+             String vlogin = scanner.nextLine();
+
+             System.out.println("Insira sua senha: ");
+             String vSenha = scanner.nextLine();
+
+             if( login.equals(login) && senha.equals(senha)) {
+                 System.out.println("Login realizado com sucesso!!!");
+                 validaLogin = true;
+
+             } else {
+                 System.out.println("Login ou Senha Invalidos!");
+             }break;
+         }
+
+         //// FIM DA VALIDAÇÃO DO LOGIN E SENHA P/ PODER LOGAR.....
 
     }
 }
