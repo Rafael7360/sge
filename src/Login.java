@@ -42,7 +42,7 @@ public class Login {
                 }
             }
             if (temCaracterEspecial == false){
-                System.out.println("Senha precisar de uma letra Maiuscla e Menusculas e caracter especil @#!-");
+                System.out.println("Senha precisa e caractere especial @#!-");
                 break;
             }
 
@@ -53,25 +53,33 @@ public class Login {
 
         // INICIO DA VALIDAÇÃO DO LOGIN E SENHA P/ PODER LOGAR.....
 
-
+        int tentativas = 0;
         boolean validaLogin = false;
          while ( validaLogin == false) {
+
+             if (tentativas == 3){
+                 System.out.println("Conta Bloqueada por excesso de tentativas!");
+                 System.exit(0);
+             }
              System.out.println("Insira seu login: ");
              String vlogin = scanner.nextLine();
 
-             System.out.println("Insira sua senha: ");
+             System.out.println("Insira sua senha: ");  
              String vSenha = scanner.nextLine();
 
-             if( login.equals(login) && senha.equals(senha)) {
+             if( vlogin.equals(username) && vSenha.equals(senha)) {
                  System.out.println("Login realizado com sucesso!!!");
                  validaLogin = true;
+                 break;
 
              } else {
-                 System.out.println("Login ou Senha Invalidos!");
-             }break;
+                 tentativas++;
+                 System.out.printf("Login ou Senha Invalidos!Tentativas restantes: %d%n", 3- tentativas);
+             }
+
          }
 
-         //// FIM DA VALIDAÇÃO DO LOGIN E SENHA P/ PODER LOGAR.....
+         // FIM DA VALIDAÇÃO DO LOGIN E SENHA P/ PODER LOGAR.....
 
     }
 }
